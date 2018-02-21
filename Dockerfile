@@ -1,4 +1,6 @@
 FROM node:8.9.4-alpine
-EXPOSE 3310
+COPY package*.json ./
+RUN npm install
 COPY . .
-CMD node server.js
+EXPOSE 3310
+CMD [ "npm", "start" ]
